@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --Red-input-errors: hsl(0, 100%, 66%);
+    --White: hsl(0, 0%, 100%);
+    --Light-grayish-violet: hsl(270, 3%, 87%);
+    --Dark-grayish-violet: hsl(279, 6%, 55%);
+    --Placeholder-color: hsl(240, 2%, 80%);
+    --Very-dark-violet: hsl(278, 68%, 11%); 
+}
+body {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+body div {
+    display: flex;
+}
+
+/* Left */
+.left {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+    background: url("images/bg-main-desktop.png") no-repeat center/cover;
+    gap: 40px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 90%;
+    height: 240px;
+    max-width: 440px; /* Prevents it from getting too large */
+    aspect-ratio: 447 / 245; /* Maintains the original aspect ratio */
+    border-radius: 10px;
+    padding: 1.8vw 2.2vw; /* Scales padding with screen size */
+    color: var(--Light-grayish-violet);
+    box-shadow: -10px 35px 19px 25px hsla(278, 68%, 11%,0.05);
+}
+.front {
+    transform: translateX(35%);
+    justify-content: space-between;
+    background: url("images/bg-card-front.png") no-repeat center/cover;
+}
+.front img {
+    width: 90px;
+}
+.card-bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+#card-holder-number {
+    color: var(--White);
+    font-size: 2vw; /* Responsive text size */
+    letter-spacing:3px;
+    margin-bottom: 10px;
+}
+.name-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 1vw;
+    letter-spacing: 2px;
+}
+.name-date p {
+    text-transform: uppercase;
+   
+}
+.back{
+    transform: translateX(55%);
+    font-size: 1vw;
+    letter-spacing: 2px;
+    justify-content: center;
+    align-items: end;
+    background: url("images/bg-card-back.png") no-repeat center/cover;
+}
+.back span {
+    padding-right: 24px;
+}
+
+
+/* Right */
+.right {
+    background-color: var(--White);
+    width: 65%;
+}
+.form-container, .thank-you-container {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto 0;
+    margin-left: 35%;
+}
+input {
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--Light-grayish-violet)
+}
+input::placeholder {
+    color: var(--Placeholder-color);
+}
+input:focus, input:hover {
+    outline: none !important;
+    border: 2px solid transparent !important;
+    background:linear-gradient(white, white) padding-box, 
+    linear-gradient(45deg, hsl(249, 99%, 64%),  hsl(278, 94%, 30%)) border-box !important;
+} 
+input.error-border {
+    border: 1px solid var(--Red-input-errors);
+}
+label {
+    color: var(--Very-dark-violet);
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 5px;
+    letter-spacing: 1.3px;
+}
+.flexed {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.flex-date-cvc {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.exp-date-container {
+    width: 50%;
+}
+.full-date {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+}
+.full-date input {
+    width: 50%;   
+}
+.cvc-container {
+    width: 50%;
+}
+.confirm, .continue {
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--Very-dark-violet);
+    color: var(--White);
+    letter-spacing: 1px;
+    font-family: "Space Grotesk";
+}
+.confirm:hover , .continue:hover {
+background-color: hsl(278, 69%, 6%);
+}
+.thank-you-container {
+    text-align: center;
+    
+}
+.thank-you-container img {
+    align-self: center;
+    width: 22%;
+    margin-bottom: 30px;
+}
+.thank-you-container h1 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 30px;
+    color: var(--Very-dark-violet);
+    margin-bottom: 20px;
+}
+.thank-you-container p {
+    color: var(--Dark-grayish-violet);
+    margin-bottom: 40px;
+}
+
+/* Error Messages*/
+.error-msg, .format-error {
+    display: none;
+    font-size: 12px;
+    color: var(--Red-input-errors);
+}
+/* Author */
+    .attribution { 
+        position: absolute;
+        justify-content: center;
+        font-size: 12px;  
+        bottom: 0;
+        width: 100%;
+        font-weight: 700;
+    }
+    .attribution a { 
+        color: hsl(228, 45%, 44%); 
+    }
+    .thank-you-container {
+        display: none;
+    }
+
+
+/* Media Queries*/
+ @media screen and (max-width: 1000px) {
+    .form-container, .thank-you-container {
+        width: 55%;
+    }
+    .card {
+        width: 100%;
+        height: 20%;
+        box-shadow: -10px 35px 19px 25px hsla(278, 68%, 11%,0.07);
+    }
+ }
+
+ @media screen and (max-width: 800px) {
+    body {
+        flex-direction: column;
+        
+    }
+    .left {
+        width: 100%;
+        height: 30%; 
+        background: url("images/bg-main-mobile.png") no-repeat center/cover;
+    }
+    
+    .card {
+        max-width: 350px;
+        aspect-ratio: 350 / 245; 
+        height: 200px;
+        transform: translateX(0);
+    }
+    .back {
+        transform: translate(10%, -65%);
+    }
+    .front {
+        transform: translate(-10%, 115%);
+        z-index: 2;
+    }
+    .name-container {
+        margin-top: 80px;
+    }
+    #card-holder-number {
+        font-size: 2.5vw;
+    }
+    .name-date {
+        font-size: 1.4vw; 
+        padding-bottom: 5px; 
+    }
+#cvc {
+    font-size: 1.4vw; 
+}
+.right {
+    width: 100%;
+    height: 65%;
+}
+.form-container, .thank-you-container {
+    width: 60%;
+    margin: auto;
+}.attribution { 
+    position: relative;
+  margin-top: 20px;
+}
+
+ }
+
+
+
+ @media screen and (max-width: 400px) {
+   .left{
+    height: 30%;
+   }
+    .card {
+        max-width: 300px; 
+        aspect-ratio: 300 / 200; 
+        height: 170px; 
+        width: 80%; 
+        padding: 4vw 3vw; 
+    }
+    .front img {
+        width: 60px;
+    }
+
+    #card-holder-number {
+        font-size: 4.5vw; 
+    }
+    .name-date {
+        font-size: 2.4vw; 
+    }
+    #cvc {
+        font-size: 2.4vw; 
+    }
+.right {
+    height: 70%;
+}
+.form-container, .thank-you-container {
+    width: 90%;
+}
+
+ }
